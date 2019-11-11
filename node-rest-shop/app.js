@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
 /*
 app.use((req, res, next) => {
@@ -16,6 +17,8 @@ const orderRoutes = require('./api/routes/orders.js');
 
 // use morgan for logging
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParse.json());
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
