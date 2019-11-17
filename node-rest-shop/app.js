@@ -24,12 +24,12 @@ app.use((req,res,next) => {
 });
 
 // Routes that handle request
-const productRoutes = require('./api/routes/products.js');
-const orderRoutes = require('./api/routes/orders.js');
+const productRoutes = require('./api/routes/products');
+const orderRoutes = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://dbUser:' + process.env.MONGO_ATLAS_PW + '@cluster0-gxxii.mongodb.net/test?retryWrites=true&w=majority', 
+mongoose.connect('mongodb+srv://admin:' + process.env.MONGO_ATLAS_PW + '@cluster0-gxxii.mongodb.net/test?retryWrites=true&w=majority', 
 {
-    useMongoClient: true
+    useNewUrlParser: true
 }
 );
 
