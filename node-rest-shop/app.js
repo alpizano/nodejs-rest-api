@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 /*
 app.use((req, res, next) => {
@@ -25,6 +26,8 @@ app.use((req,res,next) => {
 // Routes that handle request
 const productRoutes = require('./api/routes/products.js');
 const orderRoutes = require('./api/routes/orders.js');
+
+mongoose.connect('mongodb+srv://dbUser:' + process.env.MONGO_ATLAS_PW + '@cluster0-gxxii.mongodb.net/test?retryWrites=true&w=majority')
 
 // use morgan for logging
 app.use(morgan('dev'));
