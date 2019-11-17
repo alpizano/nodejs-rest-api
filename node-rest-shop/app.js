@@ -27,7 +27,11 @@ app.use((req,res,next) => {
 const productRoutes = require('./api/routes/products.js');
 const orderRoutes = require('./api/routes/orders.js');
 
-mongoose.connect('mongodb+srv://dbUser:' + process.env.MONGO_ATLAS_PW + '@cluster0-gxxii.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://dbUser:' + process.env.MONGO_ATLAS_PW + '@cluster0-gxxii.mongodb.net/test?retryWrites=true&w=majority', 
+{
+    useMongoClient: true
+}
+);
 
 // use morgan for logging
 app.use(morgan('dev'));
